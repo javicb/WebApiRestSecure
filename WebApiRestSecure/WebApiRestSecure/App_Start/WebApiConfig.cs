@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using WebApiRestSecure.Controllers;
 
 namespace WebApiRestSecure
 {
@@ -13,6 +11,8 @@ namespace WebApiRestSecure
 
             // Rutas de API web
             config.MapHttpAttributeRoutes();
+
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
